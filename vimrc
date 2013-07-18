@@ -46,8 +46,8 @@ let g:Powerline_symbols = 'fancy'
 
 
 " Settings for syntastic PHP
-let g:syntastic_php_phpcs_args="--standard=CakePHP"
-let g:syntastic_php_checkers=['phpcs']
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
 
 
 " Settings for NERDTree
