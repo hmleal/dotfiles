@@ -29,6 +29,7 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'SirVer/ultisnips'
+Bundle 'tpope/vim-markdown'
 
 
 " Enable syntax highlighting
