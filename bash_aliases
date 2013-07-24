@@ -16,3 +16,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
+
+
+# GIT Stuffs
+alias gs="git status" #N.B. Overrides ghostscript (probably not important if you don't use it)
+alias gd="git diff"
+alias gc="git commit"
+alias gl="git log --graph --full-history --all --color"
