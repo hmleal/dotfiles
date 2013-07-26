@@ -24,3 +24,7 @@ alias gs="git status" #N.B. Overrides ghostscript (probably not important if you
 alias gd="git diff"
 alias gc="git commit"
 alias gl="git log --graph --full-history --all --color"
+
+rgc() {
+    git commit -m"`curl -s http://whatthecommit.com/index.txt`"
+}
