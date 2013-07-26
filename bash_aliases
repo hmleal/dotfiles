@@ -19,6 +19,7 @@ alias -- -="cd -"
 
 
 # GIT Stuffs
+alias ga="git add" #Suggest by Severo
 alias gs="git status" #N.B. Overrides ghostscript (probably not important if you don't use it)
 alias gd="git diff"
 alias gc="git commit"
