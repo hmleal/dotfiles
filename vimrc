@@ -30,6 +30,8 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-markdown'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'ervandew/supertab'
 
 
 " Enable syntax highlighting
@@ -46,6 +48,10 @@ set laststatus=2
 let g:Powerline_symbols = 'fancy'
 
 
+" Settings for syntastic Python
+let g:syntastic_python_checkers=['pep8', 'pyflakes']
+
+
 " Settings for syntastic PHP
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
@@ -54,6 +60,23 @@ let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
 " Settings for NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
+
+
+" Python folding
+" mkdir -p ~/.vim/ftplugin
+" wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
+set nofoldenable
+
+
+" Jedi-python
+let g:jedi#related_names_command="<leader>z"
+let g:jedi#popup_on_dot=0
+let g:jedi#popup_select_first=0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
 
 
 " General options
@@ -97,7 +120,7 @@ set noswapfile
 set linespace=4
 
 
-" Showing line numbers and length 
+" Showing line numbers and length
 set number
 set cul
 set colorcolumn=80
@@ -114,7 +137,7 @@ set expandtab
 " Disable stupid backup and swap files
 set nobackup
 set nowritebackup
-set noswapfile 
+set noswapfile
 
 
 " Color Scheme
