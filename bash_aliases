@@ -26,6 +26,15 @@ alias gc="git commit"
 alias gl="git log --graph --full-history --all --color"
 
 
+# Remove *.pyc files
+alias rmpyc='find . -name "*.pyc" -delete'
+
+
+# Simple server
+alias simple-server='python -m SimpleHTTPServer'
+
+
+# Magic
 gcr() {
     git commit -m"`curl -s http://whatthecommit.com/index.txt`"
 }

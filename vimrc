@@ -60,6 +60,7 @@ let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
 " Settings for NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
+let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 
 
 " Python folding
