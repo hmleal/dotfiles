@@ -11,10 +11,8 @@
 
 
 ########## Variables
-
-
 dir=~/dotfiles
-files="vimrc bash_aliases"
+files="vimrc zshrc"
 
 
 ########## Create symlinks
