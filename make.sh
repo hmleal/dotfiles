@@ -18,5 +18,5 @@ files="vimrc zshrc"
 ########## Create symlinks
 for file in $files; do
     echo "Creating a symlink $file in home directory"
-    ln -s $dir/$file ~/.file
+    ln -s $dir/$file ~/.$file
 done
