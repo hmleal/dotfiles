@@ -3,18 +3,33 @@ hmleal dotfiles
 
 This repo is mostly for me but you're welcome to make suggestions.
 
+Before install
+--------------
+
+1. Needed packages for Ubuntu Linux
+
+```
+# apt-get install vim-nox build-essential python-dev python-virtualenv git git-core
+```
+
+2. Install Node.js
+
+```
+https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
+```
+
 Install
 -------
 
-* be careful there's no warranty =\
+* Be careful there's no warranty =\
 
-Just clone repository in your home directory.
+1. Just clone repository in your home directory.
 
 ```
 git clone https://github.com/hmleal/dotfiles.git ~/dotfiles
 ```
 
-run the make file
+2. Run the make file
 
 ```
 ./make.sh
