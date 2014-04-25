@@ -10,29 +10,31 @@ filetype off
 
 
 " Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 
-" Vundle manage Vundle
-Bundle 'gmarik/vundle'
+    " let Vundle manage Vundle, required
+    Plugin 'gmarik/Vundle.vim'
 
 
-" My Bundles here:
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tomasr/molokai'
-Bundle 'gregsexton/MatchTag'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'SirVer/ultisnips'
-Bundle 'tpope/vim-markdown'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'ervandew/supertab'
+    " My Plugins here:
+    Plugin 'gmarik/vundle'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'Lokaltog/vim-powerline'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'tomasr/molokai'
+    Plugin 'gregsexton/MatchTag'
+    Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'tpope/vim-markdown'
+    Plugin 'davidhalter/jedi-vim'
+    Plugin 'ervandew/supertab'
+    Plugin 'miripiruni/CSScomb-for-Vim.git'
 
+call vundle#end()
 
 " Enable syntax highlighting
 filetype plugin indent on
