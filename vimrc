@@ -19,7 +19,6 @@ call vundle#begin()
 
 
     " My Plugins here:
-    Plugin 'gmarik/vundle'
     Plugin 'scrooloose/syntastic'
     Plugin 'Lokaltog/vim-powerline'
     Plugin 'kien/ctrlp.vim'
