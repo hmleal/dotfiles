@@ -1,38 +1,29 @@
 hmleal dotfiles
 ===============
 
-This repo is mostly for me but you're welcome to make suggestions.
+This repo is mostly for me but you're welcome to make suggestions. Enjoy :)
 
-Before install
---------------
+Getting started
+---------------
 
-Needed packages for Ubuntu Linux
-```
-# apt-get install vim-nox build-essential python-dev python-virtualenv git git-core
-```
+### Install Vundle
 
-Install Node.js
-```
-https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint-elementary-os
-```
+See details in [Vundle repository](https://github.com/gmarik/vundle).
 
-Install
--------
+### Install .vimrc
 
-* Be careful there's no warranty =\
+1. Just clone repository in your home directory.
 
-Just clone repository in your home directory.
-```
-git clone https://github.com/hmleal/dotfiles.git ~/dotfiles
-```
+  ```sh
+  git clone https://github.com/hmleal/dotfiles.git ~/.dotfiles
+  ```
 
-Run the make file
-```
-./make.sh
-```
+2. Create symbolic link to your .vimrc
 
-that's it =P
+  ```sh
+  ln -s ~/.dotfiles/vimrc ~/.vimrc
+  ```
 
-Requirements
-------------
-* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+### Install plugins
+
+Open VIM and run `:PluginInstall`.
