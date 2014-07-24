@@ -37,7 +37,62 @@ call vundle#end()
 
 " Enable syntax highlighting
 filetype plugin indent on
-syntax on
+
+
+""
+"" Basic setup {{{
+""
+
+set number                      " show line numbers
+set ruler                       " show line and column number
+syntax enable                   " Turn on syntax highlighting allowing local
+                                " overrides
+set encoding=utf-8              " set default encoding to UTF-8
+set listchars=""                " Reset the listchars
+set listchars=tab:\ \           " a tab should display as " ", trailing whitespace as "."
+set listchars+=trail:.          " show trailing spaces as dots
+set listchars+=extends:>        " The character to show in the last column when wrap is
+                                " off and the line continues beyond the right of the screen
+set listchars+=precedes:<       " The character to show in the last column when wrap is
+                                " off and the line continues beyond the left of the screen
+set clipboard=unnamedplus       " Better Copy & Paste
+set nobackup                    " disable backup before overwriting a file
+set nowritebackup               " disable backup before overwriting a file
+set noswapfile                  " disable swap file
+set cul                         " Highlight the screen line of the cursor
+set linespace=4                 " Add some line space for easy reading
+set colorcolumn=80              " Useful to align text
+set expandtab                   " use spaces, not tabs
+set list                        " show invisible characters
+set tabstop=4                   " a tab is two spaces
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set backspace=indent,eol,start  " backspace through everything in insert mode
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " unless they contain at least one capital letter
+
+"" }}}
+
+
+""
+"" Mappings {{{
+""
+let mapleader=","             " Rebind <leader> key
+"" }}}
+
+
+""
+"" Plugins {{{
+
+"" }}}
+
+
+
+
+
 
 
 " Plugins Config
@@ -89,11 +144,9 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd! bufwritepost .vimrc source %
 
 
-" Rebind <leader> key
-let mapleader = ","
 
 
-" Remove menu e toolbar 
+" Remove menu e toolbar
 " set guioptions-=m
 set guioptions-=T
 
@@ -104,56 +157,12 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
 
-" Basic Setup and preferences
-" ===========================
-
-
-" Better Copy & Paste
-set clipboard=unnamedplus
-
-
-" Directories for swp files
-set nobackup
-set nowritebackup
-set noswapfile
-
-
-" Add some line space for easy reading
-set linespace=4
-
-
-" Showing line numbers and length
-set number
-set cul
-set colorcolumn=80
-
-
-" Real programmers don't use TABs but spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-
-
-" Disable stupid backup and swap files
-set nobackup
-set nowritebackup
-set noswapfile
-
-
 " Color Scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
 " color wombat256mod
 colorscheme molokai
-
-
-" Show hide characteres
-set list
-set listchars=tab:▸\ ,eol:¬
-
 
 " Shortcuts
 " =========
