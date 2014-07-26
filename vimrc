@@ -32,6 +32,7 @@ call vundle#begin()
     Plugin 'davidhalter/jedi-vim'
     Plugin 'ervandew/supertab'
     Plugin 'miripiruni/CSScomb-for-Vim.git'
+    Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
@@ -43,9 +44,9 @@ filetype plugin indent on
 "" Basic setup {{{
 ""
 
+syntax enable                   " Turn on syntax highlighting allowing local
 set number                      " show line numbers
 set ruler                       " show line and column number
-syntax enable                   " Turn on syntax highlighting allowing local
                                 " overrides
 set encoding=utf-8              " set default encoding to UTF-8
 set listchars=""                " Reset the listchars
@@ -73,6 +74,15 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " unless they contain at least one capital letter
+set guioptions-=m               " remove menu
+set guioptions-=T               " remove toolbar
+set laststatus=2
+
+
+autocmd! bufwritepost .vimrc source %   " auto-load .vimrc file
+
+" Colorscheme settings
+colorscheme molokai
 
 "" }}}
 
@@ -80,102 +90,11 @@ set smartcase                   " unless they contain at least one capital lette
 ""
 "" Mappings {{{
 ""
-let mapleader=","             " Rebind <leader> key
-"" }}}
 
-
-""
-"" Plugins {{{
-
-"" }}}
-
-
-
-
-
-
-
-" Plugins Config
-" ==============
-
-
-" Setting for powerline
-set laststatus=2
-let g:Powerline_symbols = 'fancy'
-
-
-" Settings for syntastic Python
-let g:syntastic_python_checkers=['pep8', 'pyflakes']
-
-
-" Settings for syntastic PHP
-let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
-
-
-" Settings for NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right"
-let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-
-
-" Python folding
-" mkdir -p ~/.vim/ftplugin
-" wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
-set nofoldenable
-
-
-" Jedi-python
-let g:jedi#related_names_command="<leader>z"
-let g:jedi#popup_on_dot=0
-let g:jedi#popup_select_first=0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
-
-" General options
-" ===============
-
-
-" Auto-load .vimrc file
-autocmd! bufwritepost .vimrc source %
-
-
-
-
-" Remove menu e toolbar
-" set guioptions-=m
-set guioptions-=T
-
-
-" Show whitespace
-" MUST be inserted BEFORE the colorscheme command
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
-
-
-" Color Scheme
-" mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
-set t_Co=256
-" color wombat256mod
-colorscheme molokai
-
-" Shortcuts
-" =========
-
-
-" Edit vim-file
-nmap <leader>v :tabedit $MYVIMRC<CR>
-
-
-" easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
-
+let mapleader=","                       " rebind <leader> key
+nmap <leader>v :tabedit $MYVIMRC<CR>    " edit vim-file
+map <leader>n <esc>:tabprevious<CR>     " easier moving between tabs
+map <leader>m <esc>:tabnext<CR>
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
@@ -197,3 +116,42 @@ inoremap <C-S-j> <Esc>:m+<CR>
 inoremap <C-S-k> <Esc>:m-2<CR>
 vnoremap <C-S-j> :m'>+<CR>gv
 vnoremap <C-S-k> :m-2<CR>gv
+
+"" }}}
+
+
+""
+"" Plugins {{{
+
+
+let g:syntastic_python_checkers=['pep8', 'pyflakes']    " Syntastic
+
+" Jedi-python
+let g:jedi#usages_command="<leader>z"
+let g:jedi#popup_on_dot=0
+let g:jedi#popup_select_first=0
+map <leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>           " CTRL + N open a NERDTreeToogle
+let g:NERDTreeWinPos = "right"          " Always in right
+let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
+
+" Setting for powerline
+" let g:Powerline_symbols = 'fancy'
+
+"" }}}
+
+
+" Python folding
+" mkdir -p ~/.vim/ftplugin
+" wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
+set nofoldenable
+
+" Show whitespace
+" MUST be inserted BEFORE the colorscheme command
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
