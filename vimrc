@@ -32,7 +32,7 @@ call vundle#begin()
     Plugin 'davidhalter/jedi-vim'
     Plugin 'ervandew/supertab'
     Plugin 'miripiruni/CSScomb-for-Vim.git'
-    Plugin 'mattn/emmet-vim'
+    Plugin 'bronson/vim-trailing-whitespace'
 
 call vundle#end()
 
@@ -82,6 +82,7 @@ set laststatus=2
 autocmd! bufwritepost .vimrc source %   " auto-load .vimrc file
 
 " Colorscheme settings
+set t_Co=256
 colorscheme molokai
 
 "" }}}
@@ -150,8 +151,3 @@ let g:SuperTabDefaultCompletionType = "context"
 " mkdir -p ~/.vim/ftplugin
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 set nofoldenable
-
-" Show whitespace
-" MUST be inserted BEFORE the colorscheme command
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
