@@ -6,13 +6,23 @@ This repo is mostly for me but you're welcome to make suggestions. Enjoy :)
 Getting started
 ---------------
 
-### Install Vundle
+### Requirements
 
-```sh
-$ git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-```
+1. Install Vundle
 
-See details in [Vundle repository](https://github.com/gmarik/vundle).
+  ```sh
+  $ git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  ```
+
+  See details in [Vundle repository](https://github.com/gmarik/vundle).
+
+2. Integrating with powerline fonts (ArchLinux resolution)
+
+  ```sh
+  $ yaourt ttf-powerline-fonts-git --noconfirm
+  ```
+
+  See details in [AUR Packages](https://aur.archlinux.org/packages/ttf-powerline-fonts-git/)
 
 ### Install .vimrc
 

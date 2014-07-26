@@ -20,7 +20,7 @@ call vundle#begin()
 
     " My Plugins here:
     Plugin 'scrooloose/syntastic'
-    Plugin 'Lokaltog/vim-powerline'
+    Plugin 'bling/vim-airline'
     Plugin 'kien/ctrlp.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'tomasr/molokai'
@@ -140,6 +140,9 @@ let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache_
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
+
+" vim-airline
+let g:airline_powerline_fonts = 1
 
 " Setting for powerline
 " let g:Powerline_symbols = 'fancy'
