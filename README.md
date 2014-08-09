@@ -41,3 +41,24 @@ Getting started
 ### Install plugins
 
 Open VIM and run `:PluginInstall`.
+
+### Commands
+
+Commands | Descriptions
+--- | ---
+`F2` | Open three navegate in actual opened file
+`F3` | Open/Close three navegate files
+`F4` | List all class and method, support for python, go, lua, ruby and php
+`<leader>Space` | Clean last search highlight
+`>` | indent to right
+`<` | indent to left
+
+### Python hotkeys
+
+Commands | Descriptions
+--- | ---
+`SHIFT+k` | Open documentation
+`Control+Space` | Autocomplete
+`<leader>d` | Go to the Class/Method definition
+`<leader>r` | Rename object definition
+`<leader>n` | Show where command is usage
