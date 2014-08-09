@@ -35,6 +35,7 @@ call vundle#begin()
     Plugin 'davidhalter/jedi-vim'
     Plugin 'majutsushi/tagbar'
     Plugin 'scrooloose/syntastic'
+    Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
