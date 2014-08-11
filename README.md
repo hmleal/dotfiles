@@ -11,7 +11,7 @@ Getting started
 1. Install Vundle
 
   ```sh
-  $ git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   ```
 
   See details in [Vundle repository](https://github.com/gmarik/vundle).
@@ -50,6 +50,8 @@ Commands | Descriptions
 `F3` | Open/Close three navegate files
 `F4` | List all class and method, support for python, go, lua, ruby and php
 `<leader>Space` | Clean last search highlight
+`<leader>m` | Next tab navigate
+`<leader>n` | Previous tab navigate
 `>` | indent to right
 `<` | indent to left
 

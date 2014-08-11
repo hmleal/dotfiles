@@ -72,10 +72,13 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set backspace=indent,eol,start " backspace through everything in insert mode
+
+""" Searching
 set hlsearch                   " highlight matches
 set incsearch                  " incremental searching
 set ignorecase                 " searches are case insensitive...
 set smartcase                  " unless they contain at least one capital letter
+
 set guioptions-=m              " remove menu
 set guioptions-=T              " remove toolbar
 set laststatus=2
@@ -93,6 +96,18 @@ autocmd! bufwritepost .vimrc source %
 "*****************************************************************************
 colorscheme molokai
 
+"*****************************************************************************
+"" Abbreviations
+"*****************************************************************************
+"" no one is really happy until you have this shortcuts
+cab W! w!
+cab Q! q!
+cab Wq wq
+cab Wa wa
+cab wQ wq
+cab WQ wq
+cab W w
+cab Q q
 
 "*****************************************************************************
 "" Mappings
@@ -107,6 +122,10 @@ nnoremap <silent> <leader><space> :noh<cr>
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
+
+"" Easier moving between tabs
+map <leader>n <esc>:tabprevious<CR>
+map <leader>m <esc>:tabnext<CR>
 
 "*****************************************************************************
 "" Plugins settings
@@ -151,6 +170,12 @@ noremap <F3> :NERDTreeToggle<CR>
 
 
 "" Vim-airline
+let g:airline_theme = 'powerlineish'
+let g:airline_enable_branch = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline_enable_syntastic = 1
 let g:airline_powerline_fonts = 1
