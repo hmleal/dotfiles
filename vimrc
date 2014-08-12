@@ -37,6 +37,9 @@ call vundle#begin()
     Plugin 'scrooloose/syntastic'
     Plugin 'Yggdroot/indentLine'
 
+    "" HTML
+    Plugin 'hail2u/vim-css3-syntax'
+
 call vundle#end()
 
 
