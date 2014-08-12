@@ -39,6 +39,7 @@ call vundle#begin()
 
     "" HTML
     Plugin 'hail2u/vim-css3-syntax'
+    Plugin 'othree/html5-syntax.vim'
 
 call vundle#end()
 
