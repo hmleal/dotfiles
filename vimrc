@@ -1,3 +1,4 @@
+
 "*****************************************************************************
 " Vundle core
 "*****************************************************************************
@@ -17,29 +18,24 @@ call vundle#begin()
     " let Vundle manage Vundle, required
     Plugin 'gmarik/Vundle.vim'
 
-    "" My Plugins here:
+    "" Basic plugins
     Plugin 'bling/vim-airline'
-    Plugin 'kien/ctrlp.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'gregsexton/MatchTag'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'tpope/vim-markdown'
-    Plugin 'miripiruni/CSScomb-for-Vim.git'
     Plugin 'bronson/vim-trailing-whitespace'
 
     "" Color
     Plugin 'tomasr/molokai'
 
-    "" Python Bundle
+    "" Python Stack
     Plugin 'davidhalter/jedi-vim'
     Plugin 'majutsushi/tagbar'
     Plugin 'scrooloose/syntastic'
     Plugin 'Yggdroot/indentLine'
 
-    "" HTML
-    Plugin 'hail2u/vim-css3-syntax'
-    Plugin 'othree/html5-syntax.vim'
+    "" HTML/CSS Stack
+    Plugin 'gregsexton/MatchTag'
+    Plugin 'miripiruni/CSScomb-for-Vim.git'
 
 call vundle#end()
 
