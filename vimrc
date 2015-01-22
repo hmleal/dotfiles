@@ -25,7 +25,7 @@ call vundle#begin()
     Plugin 'bronson/vim-trailing-whitespace'
 
     "" Color
-    Plugin 'tomasr/molokai'
+    Plugin 'altercation/vim-colors-solarized'
 
     "" Python Stack
     Plugin 'davidhalter/jedi-vim'
@@ -94,7 +94,13 @@ autocmd! bufwritepost .vimrc source %
 "*****************************************************************************
 "" Colorscheme settings
 "*****************************************************************************
-colorscheme molokai
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
+call togglebg#map("<F5>")
 
 "*****************************************************************************
 "" Abbreviations

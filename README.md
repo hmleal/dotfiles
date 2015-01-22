@@ -49,6 +49,7 @@ Commands | Descriptions
 `F2` | Open three navegate in actual opened file
 `F3` | Open/Close three navegate files
 `F4` | List all class and method, support for python, go, lua, ruby and php
+`F5` | Change between light or dark version of solarized colorscheme
 `<leader>Space` | Clean last search highlight
 `<leader>m` | Next tab navigate
 `<leader>n` | Previous tab navigate
