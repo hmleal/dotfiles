@@ -125,13 +125,20 @@ let mapleader=","
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
 
+"" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
 
-"" Easier moving between tabs
-map <leader>n <esc>:tabprevious<CR>
-map <leader>m <esc>:tabnext<CR>
+"" Easier moving between buffers
+noremap <leader>q :bp<CR>
+noremap <leader>w :bn<CR>
+
+"" Close buffer
+noremap <leader>c :bd<CR>
 
 "*****************************************************************************
 "" Plugins settings
@@ -177,14 +184,12 @@ noremap <F3> :NERDTreeToggle<CR>
 
 "" Vim-airline
 let g:airline_theme = 'powerlineish'
-let g:airline_enable_branch = 1
+let g:airline_enable_syntastic = 1
+let g:airline_powerline_fonts = 1
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline_enable_syntastic = 1
-let g:airline_powerline_fonts = 1
 
 
 "" Tagbar
