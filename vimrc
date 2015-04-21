@@ -1,7 +1,11 @@
+" -----------------------------------------------------------------------------
+" Who: Henrique Leal (@hmleal)
+" Description: The vim configuration
+" -----------------------------------------------------------------------------
 
-"*****************************************************************************
+" -----------------------------------------------------------------------------
 " Vundle core
-"*****************************************************************************
+" -----------------------------------------------------------------------------
 
 set nocompatible        " be iMproved!
 filetype off
@@ -11,9 +15,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-"*****************************************************************************
-"" My Plugins
-"*****************************************************************************
+" -----------------------------------------------------------------------------
+" My Plugins
+" -----------------------------------------------------------------------------
 
     " let Vundle manage Vundle, required
     Plugin 'gmarik/Vundle.vim'
@@ -22,7 +26,10 @@ call vundle#begin()
     Plugin 'bling/vim-airline'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'vim-scripts/grep.vim'
     Plugin 'bronson/vim-trailing-whitespace'
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'SirVer/ultisnips'
 
     "" Color
     Plugin 'altercation/vim-colors-solarized'
@@ -42,28 +49,25 @@ call vundle#end()
 
 filetype plugin indent on    " enable syntax highlighting, required
 
-"*****************************************************************************
-"" Basic Setup
-"*****************************************************************************
+" -----------------------------------------------------------------------------
+"  Regular vim configuration (no plugins need)
+" -----------------------------------------------------------------------------
 
-syntax enable                  " Turn on syntax highlighting allowing local
+syntax enable                  " turn on syntax highlighting allowing local
 set number                     " show line numbers
-set ruler                      " show line and column number
-                               " overrides
+set ruler                      " show line and column number overrides
 set encoding=utf-8             " set default encoding to UTF-8
-set listchars=""               " Reset the listchars
+set listchars=""               " reset the listchars
 set listchars=tab:\ \          " a tab should display as " ", trailing whitespace as "."
 set listchars+=trail:.         " show trailing spaces as dots
-set listchars+=extends:>       " The character to show in the last column when wrap is
-                               " off and the line continues beyond the right of the screen
-set listchars+=precedes:<      " The character to show in the last column when wrap is
-                               " off and the line continues beyond the left of the screen
-set clipboard=unnamedplus      " Better Copy & Paste
+set listchars+=extends:>       " the character to show in the last column when wrap is off and the line continues beyond the right of the screen
+set listchars+=precedes:<      " the character to show in the last column when wrap is off and the line continues beyond the left of the screen
+set clipboard=unnamedplus      " better Copy & Paste
 set nobackup                   " disable backup before overwriting a file
 set nowritebackup              " disable backup before overwriting a file
 set noswapfile                 " disable swap file
-set cul                        " Highlight the screen line of the cursor
-set linespace=4                " Add some line space for easy reading
+set cul                        " highlight the screen line of the cursor
+set linespace=4                " add some line space for easy reading
 set colorcolumn=80             " Useful to align text
 set expandtab                  " use spaces, not tabs
 set list                       " show invisible characters
@@ -88,23 +92,29 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__,*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite3,*/node_modules/*
+
 " auto-load .vimrc file
 autocmd! bufwritepost .vimrc source %
 
-"*****************************************************************************
-"" Colorscheme settings
-"*****************************************************************************
+" -----------------------------------------------------------------------------
+" Colorscheme settings
+" -----------------------------------------------------------------------------
+
 if has('gui_running')
     set background=light
 else
     set background=dark
 endif
+let g:solarized_termcolors=256
 colorscheme solarized
 call togglebg#map("<F5>")
 
-"*****************************************************************************
-"" Abbreviations
-"*****************************************************************************
+" -----------------------------------------------------------------------------
+" Abbreviations
+" -----------------------------------------------------------------------------
+
 "" no one is really happy until you have this shortcuts
 cab W! w!
 cab Q! q!
@@ -115,15 +125,18 @@ cab WQ wq
 cab W w
 cab Q q
 
-"*****************************************************************************
-"" Mappings
-"*****************************************************************************
+" -----------------------------------------------------------------------------
+" Mappings
+" -----------------------------------------------------------------------------
 
 "" rebind <leader> key
 let mapleader=","
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
+
+"" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
 
 "" Split
 noremap <Leader>h :<C-u>split<CR>
@@ -137,26 +150,33 @@ vmap > >gv
 noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
 
+"" Tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
+
 "" Close buffer
 noremap <leader>c :bd<CR>
 
-"*****************************************************************************
-"" Plugins settings
-"*****************************************************************************
+"" Switch windows with two keystrokes
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
+
+" -----------------------------------------------------------------------------
+" Plugins settings
+" -----------------------------------------------------------------------------
 
 "" Syntastic
-let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
-
 
 "" Syntastic python
 let g:syntastic_python_checkers=['pep8', 'pyflakes']
-
 
 " Jedi-python
 let g:jedi#popup_on_dot = 0
@@ -168,38 +188,37 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "0"
 let g:jedi#completions_command = "<C-Space>"
 
-
 "" NERDTree
 let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let NERDTreeShowBookmarks=1
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:nerdtree_tabs_focus_on_files=1
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 
+"" grep.vim
+nnoremap <silent> <leader>f :Rgrep<CR>
+let Grep_Default_Options = '-IR'
 
 "" Vim-airline
 let g:airline_theme = 'powerlineish'
-let g:airline_enable_syntastic = 1
-let g:airline_powerline_fonts = 1
-
+let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_powerline_fonts = 1
 
 "" Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
-
 "" CTRLP
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 0
+let g:ctrlp_map='<leader>e'
+
+"" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
