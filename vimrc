@@ -30,6 +30,7 @@ call vundle#begin()
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'SirVer/ultisnips'
+    Plugin 'tpope/vim-fugitive'
 
     "" Color
     Plugin 'altercation/vim-colors-solarized'
@@ -222,3 +223,13 @@ let g:ctrlp_map='<leader>e'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"" VimFugitive
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
