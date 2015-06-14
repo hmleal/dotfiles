@@ -147,6 +147,10 @@ noremap <Leader>v :<C-u>vsplit<CR>
 vmap < <gv
 vmap > >gv
 
+"" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 "" Easier moving between buffers
 noremap <leader>q :bp<CR>
 noremap <leader>w :bn<CR>
