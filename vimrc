@@ -1,5 +1,6 @@
 " -----------------------------------------------------------------------------
 " Who: Henrique Leal (@hmleal)
+" Contribute: Daniel Bastos (@daniellbastos)
 " Description: The vim configuration
 " -----------------------------------------------------------------------------
 
@@ -34,6 +35,8 @@ call vundle#begin()
 
     "" Color
     Plugin 'altercation/vim-colors-solarized'
+    Plugin 'sickill/vim-monokai'
+    Plugin 'godlygeek/csapprox'
 
     "" Python Stack
     Plugin 'davidhalter/jedi-vim'
@@ -45,6 +48,8 @@ call vundle#begin()
     Plugin 'gregsexton/MatchTag'
     Plugin 'miripiruni/CSScomb-for-Vim.git'
 
+    "" Multiple Cursor
+    Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
 
@@ -103,18 +108,12 @@ autocmd! bufwritepost .vimrc source %
 " Colorscheme settings
 " -----------------------------------------------------------------------------
 
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-let g:solarized_termcolors=256
-colorscheme solarized
-call togglebg#map("<F5>")
+" colorscheme cake16
+colorscheme monokai
 
 " -----------------------------------------------------------------------------
 " Abbreviations
-" -----------------------------------------------------------------------------
+:" -----------------------------------------------------------------------------
 
 "" no one is really happy until you have this shortcuts
 cab W! w!
@@ -237,3 +236,6 @@ noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
+
+"" Multiple Cursor
+let g:multi_cursor_next_key='<C-d>'

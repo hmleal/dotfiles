@@ -9,3 +9,8 @@ snippet dispatch
 def dispatch(self, request, *args, **kwargs):
 	return super(${1:View}, self).dispatch(request, *args, **kwargs)
 endsnippet
+
+
+snippet importreverse
+from django.core.urlresolvers import reverse
+endsnippet
