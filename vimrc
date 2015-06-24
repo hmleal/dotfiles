@@ -239,3 +239,8 @@ noremap <Leader>gr :Gremove<CR>
 
 "" Multiple Cursor
 let g:multi_cursor_next_key='<C-d>'
+
+"" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
