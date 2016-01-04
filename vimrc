@@ -46,6 +46,7 @@ call vundle#begin()
 
     "" HTML/CSS Stack
     Plugin 'gregsexton/MatchTag'
+    Plugin 'rstacruz/sparkup'
     Plugin 'miripiruni/CSScomb-for-Vim.git'
 
     "" Multiple Cursor
