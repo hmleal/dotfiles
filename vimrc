@@ -130,7 +130,7 @@ cab Q q
 " -----------------------------------------------------------------------------
 
 "" rebind <leader> key
-let mapleader=","
+let mapleader="\<Space>"
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
