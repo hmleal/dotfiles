@@ -108,7 +108,6 @@ autocmd! bufwritepost .vimrc source %
 " Colorscheme settings
 " -----------------------------------------------------------------------------
 
-" colorscheme cake16
 colorscheme monokai
 
 " -----------------------------------------------------------------------------
