@@ -24,7 +24,8 @@ call vundle#begin()
     Plugin 'gmarik/Vundle.vim'
 
     "" Basic plugins
-    Plugin 'bling/vim-airline'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vim-scripts/grep.vim'
