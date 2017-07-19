@@ -1,13 +1,17 @@
 # My Alias
 # ========
 
+# Remove __pycache__ files
+alias rmpyc='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
+
+
 # Remove *.pyc files
-alias rmpyc='find . -name "*.pyc" -delete'
+alias rmpyc2='find . -name "*.pyc" -delete'
 
 
 # Simple Server python 3
-alias server='python -m  http.server'
+alias server='python -m http.server'
 
 
 # Simple Server python 2
-alias server2='python -m  SimpleHTTPServer'
+alias server2='python -m SimpleHTTPServer'
