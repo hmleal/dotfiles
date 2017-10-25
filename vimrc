@@ -38,7 +38,6 @@ call plug#begin('~/.vim/plugged')
     "" Python Stack
     Plug 'davidhalter/jedi-vim'
     Plug 'majutsushi/tagbar'
-    "" Plugin 'scrooloose/syntastic'
     Plug 'w0rp/ale'
     Plug 'Yggdroot/indentLine'
 
@@ -169,16 +168,6 @@ noremap <c-h> <c-w>h
 " Plugins settings
 " -----------------------------------------------------------------------------
 
-"" Syntastic
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_aggregate_errors = 1
-
-"" Syntastic python
-let g:syntastic_python_checkers=['pep8', 'pyflakes']
-
 " Jedi-python
 let g:jedi#popup_on_dot = 0
 let g:jedi#goto_assignments_command = "<leader>g"
@@ -208,7 +197,6 @@ let Grep_Default_Options = '-IR'
 let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline_powerline_fonts = 1
 
 "" Tagbar
