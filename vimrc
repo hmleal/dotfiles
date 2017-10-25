@@ -5,57 +5,50 @@
 " -----------------------------------------------------------------------------
 
 " -----------------------------------------------------------------------------
-" Vundle core
+" Basic
 " -----------------------------------------------------------------------------
 
 set nocompatible        " be iMproved!
-filetype off
-
-
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
 
 " -----------------------------------------------------------------------------
-" My Plugins
+" Plug core
 " -----------------------------------------------------------------------------
 
-    " let Vundle manage Vundle, required
-    Plugin 'gmarik/Vundle.vim'
+" Specify a directory for plugins
+" Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
     "" Basic plugins
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'vim-scripts/grep.vim'
-    Plugin 'bronson/vim-trailing-whitespace'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'tpope/vim-fugitive'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'vim-scripts/grep.vim'
+    Plug 'bronson/vim-trailing-whitespace'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'SirVer/ultisnips'
+    Plug 'tpope/vim-fugitive'
 
     "" Color
-    Plugin 'altercation/vim-colors-solarized'
-    Plugin 'sickill/vim-monokai'
-    Plugin 'godlygeek/csapprox'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'sickill/vim-monokai'
+    Plug 'godlygeek/csapprox'
 
     "" Python Stack
-    Plugin 'davidhalter/jedi-vim'
-    Plugin 'majutsushi/tagbar'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'Yggdroot/indentLine'
+    Plug 'davidhalter/jedi-vim'
+    Plug 'majutsushi/tagbar'
+    Plug 'w0rp/ale'
+    Plug 'Yggdroot/indentLine'
 
     "" HTML/CSS Stack
-    Plugin 'gregsexton/MatchTag'
-    Plugin 'rstacruz/sparkup'
-    Plugin 'miripiruni/CSScomb-for-Vim.git'
+    Plug 'gregsexton/MatchTag'
+    Plug 'rstacruz/sparkup'
+    "" Plug 'miripiruni/CSScomb-for-Vim.git'
 
     "" Multiple Cursor
-    Plugin 'terryma/vim-multiple-cursors'
-call vundle#end()
-
-
-filetype plugin indent on    " enable syntax highlighting, required
+    Plug 'terryma/vim-multiple-cursors'
+call plug#end()
 
 " -----------------------------------------------------------------------------
 "  Regular vim configuration (no plugins need)
@@ -109,7 +102,10 @@ autocmd! bufwritepost .vimrc source %
 " Colorscheme settings
 " -----------------------------------------------------------------------------
 
-colorscheme monokai
+""colorscheme monokai
+let g:solarized_termcolors=256
+colorscheme solarized
+call togglebg#map("<F5>")
 
 " -----------------------------------------------------------------------------
 " Abbreviations
@@ -172,16 +168,6 @@ noremap <c-h> <c-w>h
 " Plugins settings
 " -----------------------------------------------------------------------------
 
-"" Syntastic
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_aggregate_errors = 1
-
-"" Syntastic python
-let g:syntastic_python_checkers=['pep8', 'pyflakes']
-
 " Jedi-python
 let g:jedi#popup_on_dot = 0
 let g:jedi#goto_assignments_command = "<leader>g"
@@ -211,7 +197,6 @@ let Grep_Default_Options = '-IR'
 let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline_powerline_fonts = 1
 
 "" Tagbar
