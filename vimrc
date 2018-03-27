@@ -168,6 +168,17 @@ noremap <c-h> <c-w>h
 " Plugins settings
 " -----------------------------------------------------------------------------
 
+" Ale
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_pylint_options = '--disable=C0111'
+let g:ale_fixers = {
+\    'python': [
+\        'isort'
+\    ]
+\}
+
 " Jedi-python
 let g:jedi#popup_on_dot = 0
 let g:jedi#goto_assignments_command = "<leader>g"
