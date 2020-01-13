@@ -8,23 +8,24 @@ Getting started
 
 ### Requirements
 
-1. Install Vundle
+1. Install Vim-Plug
 
   ```sh
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   ```
 
-  See details in [Vundle repository](https://github.com/gmarik/vundle).
+  See details in [Vim-Plug repository](https://github.com/junegunn/vim-plug).
 
-2. Integrating with powerline fonts (ArchLinux resolution)
+1. Git config
 
   ```sh
-  $ yaourt ttf-powerline-fonts-git --noconfirm
+  $ git config --global user.name  "John Doe"
+  $ git config --global user.email "johndoe@example.com"
+  $ git config --global core.excludesfile ~/.gitignore
   ```
 
-  See details in [AUR Packages](https://aur.archlinux.org/packages/ttf-powerline-fonts-git/)
-
-### Install .vimrc
+### Install
 
 1. Just clone repository in your home directory.
 
@@ -32,15 +33,16 @@ Getting started
   $ git clone https://github.com/hmleal/dotfiles.git ~/.dotfiles
   ```
 
-2. Create symbolic link to your .vimrc
+2. Create symbolic links
 
   ```sh
   $ ln -s ~/.dotfiles/vimrc ~/.vimrc
+  $ ln -s ~/.dotfiles/gitignore ~/.gitignore
   ```
 
 ### Install plugins
 
-Open VIM and run `:PluginInstall`.
+Open VIM and run `:PlugInstall`.
 
 ### Commands
 
