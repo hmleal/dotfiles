@@ -17,13 +17,20 @@ Getting started
 
   See details in [Vim-Plug repository](https://github.com/junegunn/vim-plug).
 
-1. Git config
+1. Install Git
 
   ```sh
   $ git config --global user.name  "John Doe"
   $ git config --global user.email "johndoe@example.com"
   $ git config --global core.excludesfile ~/.gitignore
   ```
+
+1. Install ZSH
+
+  Install all the following plugins:
+  
+  * [colored-man-pages](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages)
+  * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
 ### Install
 
