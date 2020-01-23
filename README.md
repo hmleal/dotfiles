@@ -3,8 +3,14 @@ hmleal dotfiles
 
 This repo is mostly for me but you're welcome to make suggestions. Enjoy :)
 
-Getting started
----------------
+  - [Requirements](#requirements)
+    - [Install Vim-Plug](#install-vim-plug)
+    - [Install Git](#install-git)
+    - [Install ZSH and Oh-my-zsh](#install-zsh-and-oh-my-zsh)
+    - [Install Pyenv](#install-pyenv)
+  - [Install](#install)
+  - [Commands](#commands)
+    - [Python hotkeys](#python-hotkeys)
 
 ## Requirements
 
@@ -31,6 +37,14 @@ Getting started
 
   * [colored-man-pages](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages)
   * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+
+### Install Pyenv
+
+  Find the official repository [here](https://github.com/pyenv/pyenv-installer)
+
+  ```sh
+  curl https://pyenv.run | bash
+  ```
 
 ## Install
 
