@@ -13,7 +13,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     Plug 'majutsushi/tagbar'
-    "" Plug 'tmhedberg/SimpylFold'
+    Plug 'Yggdroot/indentLine'
     "" Plug 'caenrique/nvim-toggle-terminal'
 call plug#end()
 
@@ -21,6 +21,7 @@ set colorcolumn=80
 set cursorline
 set number
 set splitbelow
+set splitright
 
 ""set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
