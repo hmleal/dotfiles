@@ -1,10 +1,10 @@
 return {
     {
-        'catppuccin/nvim',
-        name = 'catppuccin',
-        priority=1000,
+        'Mofiqul/dracula.nvim',
+        name = 'dracula',
+        priority = 1000,
         config = function()
-            vim.cmd.colorscheme('catppuccin')
+            vim.cmd.colorscheme('dracula')
         end
     },
     {
@@ -26,13 +26,18 @@ return {
             local config = require('nvim-treesitter.configs')
 
             config.setup({
-                ensure_installed = {'lua', 'python', 'javascript'},
+                ensure_installed = {
+                    'lua',
+                    'python',
+                    'javascript',
+                    'typescript'
+                },
                 highlight = {
                     enable = true
                 },
                 indent = {
                     enable = true
-                }, 
+                },
             })
         end
     },
@@ -44,9 +49,12 @@ return {
             'nvim-tree/nvim-web-devicons',
             'MunifTanjim/nui.nvim'
         },
-        config = function()
+        opts = {},
+        config = function(_, opts)
             vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal right toggle<CR>', {})
             vim.keymap.set('n', '<leader>bf', ':Neotree buffers reveal float<CR>', {})
+
+            -- require("neo-tree").setup(opts)
         end
     },
     {
@@ -56,7 +64,7 @@ return {
         },
         opts = {
             options = {
-                theme = 'dracula'
+                theme = 'dracula-nvim'
             }
         }
     },
@@ -66,6 +74,43 @@ return {
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
             require('bufferline').setup()
+        end
+    },
+    { 
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-neotest/neotest-python"
+        },
+        keys = {
+            {
+                "<leader>tl",
+                function()
+                    require("neotest").run.run_last()
+                end,
+                desc = "Run Last Test",
+            },
+            {
+                "<leader>tL",
+                function()
+                    require("neotest").run.run_last({ strategy = "dap" })
+                end,
+                desc = "Debug Last Test",
+            },
+            {
+                "<leader>tw",
+                "<cmd>lua require('neotest').run.run({ jestCommand = 'jest --watch ' })<cr>",
+                desc = "Run Watch",
+            },
+        },
+        config = function()
+            require('neotest').setup({
+                adapters = {
+                    require('neotest-python')
+                }
+            })
         end
     }
 }

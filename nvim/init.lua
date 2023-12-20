@@ -8,6 +8,8 @@ vim.g.mapleader = ' '
 vim.opt.number = true
 vim.opt.colorcolumn = "80,120"
 
+vim.opt.scrolloff = 8
+
 vim.keymap.set('n', '<Leader>h', ':split<CR>')
 vim.keymap.set('n', '<Leader>v', ':vsplit<CR>')
 
@@ -19,6 +21,9 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<leader>q', ':bp<CR>')
 vim.keymap.set('n', '<leader>w', ':bp<CR>')
 vim.keymap.set('n', '<leader>c', ':bd<CR>')
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
